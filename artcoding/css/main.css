@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+.navbar {
+    color: #f5f5f5;
+    height: auto;
+    max-height: 50px;
+    border-bottom: solid 0px;
+    border-bottom-color: rgba(241, 241, 241, 0);
+    /* transition: max-height 400ms, border-bottom-color 400ms, background-color 400ms; */
+    transition: border-bottom-color 400ms, background-color 400ms;
+    background-color: rgba(31, 31, 31, 0);
+    overflow: hidden;
+    z-index: 100;
+}
+.navbar .iconsRow {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 50px;
+}
+.navbar #websiteControls {
+    position: absolute;
+    left: 15px;
+}
+.navbar .OPlogo {
+    padding-right: 0px;
+    transition: width 400ms, border-color 400ms 400ms;
+    display: inline-block;
+    width: 30px;
+    margin-right: 0px;
+}
+.panel {
+    margin-bottom: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+hr {
+    border-top: 1px solid #333;
+}
+ul.sketchList {
+    padding: 0;
+    list-style: none;
+}
+.userList, .sketchList {
+    list-style: none;
+    padding: 0;
+}
+ul.sketchList>li {
+    padding: 0;
+}
+div.diagonalLine {
+    overflow: hidden;
+}
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+div.diagonalLine::after {
+    content: "";
+    position: absolute;
+    width: 141.4%;
+    height: 141.4%;
+    border-bottom: 1px solid #333;
+    -webkit-transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+    position: absolute;
+}
+a.btn.btn-primary.green{
+	background: #27B1BE;
+    color: #f5f5f5;
+	border-color: #27B1BE;
+}
+.btn-primary.green:hover{
+	color: #f5f5f5;
+    border-color: #27B1BE;
+}
+a.btn.btn-default.green{
+	color: #27B1BE;
+    border-color: #27B1BE;
+}
+.btn.btn-default.green:hover{
+	color: #27B1BE;
+    border-color: #27B1BE;
+}
+.searchBar{
+	border: none;
+	border-bottom: solid 1px #999999;
+	box-shadow: none;
+	background-image: url(./../image/icon_search.png);
+	background-position: right center;
+    background-repeat: no-repeat;
+	outline:none;
+}
+.form-control:focus{
+	box-shadow: none;
+	border-color: #999999;
+}
+.sketchThumbContainer {
+    position: relative;
+    margin: 0px;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+    float: left;
+    width: 100%;
+    height: auto;
+    border: 1px solid #f5f5f5;
+    /* background: #fff; */
+}
+.sketchThumb {
+    border: solid 0px rgb(245, 245, 245);
+    width: 100%;
+    transition: transform 400ms, opacity 200ms;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: auto;
+    opacity: 1;
+    background: #fff;
+}
