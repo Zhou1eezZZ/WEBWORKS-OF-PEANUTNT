@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Join - Artcoding</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, target-densitydpi=device-dpi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/join_view.css">
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top" role="navigation">
+		<div class="row iconsRow">
+			<div id="websiteControls">
+				<div class="OPlogo icon">
+					<a href="index.html" id="logoLight">
+						<img alt="logo" src="image/logo.png" width="30" height="30">
+					</a>
+					<a href="index.html" id="logoDark">
+						<img src="image/logoHover.png" width="30" height="30">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="topPanel" class="panel container edit">
+            <form id="joinForm" action="/home/joinSubmit_ajax" method="POST">
+                <div class="row">
+                    <h1 class="bariol col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">注册</h1>
+                </div>
+                <div class="row by portrait">
+                    <div class="col-md-offset-5 col-md-2 userSetup text-center">
+                        
+                            <div class="fadeInOnEdit uploadUserImage">
+                                <img src="/assets/img/blank.png" class="cropit-gradient ratioKeeper">
+                                <input type="file" class="cropit-image-input hide" accept="image/*">
+                                <div class="cropit-image-preview" style="background-repeat: no-repeat;"><img src="/assets/img/blank.png" class="ratioKeeper"></div>
+                                <input type="range" class="cropit-image-zoom-input dark" min="0" max="1" step="0.01">
+                                <div class="buttons">
+                                    <a href="javascript:;" id="confirmUserImage" class="icon_followed"></a>
+                                    <a href="javascript:;" id="cancelUserImage" class="icon_cancel"></a>
+                                </div>
+                                <input type="hidden" name="userImageData" class="hidden-image-data">
+                                <div class="icon_camera"></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <formitem class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+                        <label for="fullname">名字</label>
+                        <input id="fullname" maxlength="42" minlength="2" type="text" class="field edit" name="fullname" label="name">
+                    </formitem>
+                </div>
+                <div class="row">
+                    <formitem class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+                        <label for="email">邮箱</label>
+                        <input id="email" maxlength="60" type="email" required="" class="field edit" name="email">
+                    </formitem>
+                </div>
+                <div class="row">
+                    <formitem class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+                        <label for="password">密码</label>
+                        <input id="password" type="password" required="" class="field edit" name="password">
+                    </formitem>
+                </div>
+                
+                <div class="row">
+                    <div class="buttons col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+                        <div id="errorMessage" class="errorMessage"></div>
+                        <button id="submitButton" type="submit" href="/home/join" data-loading-text="Joining.." data-normal-text="Join" class="btn btn-primary green ">注册</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4"><br><br>已有账号? <a href="sign in.html">登录</a>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+</body>
+</html>

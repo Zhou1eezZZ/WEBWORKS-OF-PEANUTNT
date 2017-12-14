@@ -18,11 +18,11 @@
 		<div class="row iconsRow">
 			<div id="websiteControls">
 				<div class="OPlogo icon">
-					<a href="/" id="logoLight">
-						<img alt="logo" src="image/logoHover.png" width="30" height="30">
+					<a href="index.html" id="logoLight">
+						<img alt="logo" src="image/logo.png" width="30" height="30">
 					</a>
-					<a href="/" id="logoDark">
-						<img src="image/">
+					<a href="index.html" id="logoDark">
+						<img src="image/logoHover.png" width="30" height="30">
 					</a>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 		</div>
 	</div>
 	<div id="sketch" class style="background-color: rgb(255,255,255);">
-		<iframe src="works/colorsmoke.html"></iframe>
+		<iframe id="iframe"></iframe>
 	</div>
 	<div id="topPanel" class="panel container">
 		<div class="row">
@@ -46,16 +46,35 @@
 				<p>支持JavaScript以及JAVA代码</p>
             </h3>
 			<div class="buttons  col-xs-12  col-sm-offset-5 col-sm-7 col-md-offset-4 col-lg-offset-3">
-				<a href="/" class="btn btn-primary green">注册</a>
-				<a href="/" class="btn btn-default green">登录</a>
+				<a href="join.html" class="btn btn-primary green">注册</a>
+				<a href="sign in.html" class="btn btn-default green">登录</a>
 			</div>
 		</div>
 	</div>
 	<div id="searchContainer" class="jumbotron">
+		<featured>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="icon icon_arrow_circle_left_dark  pull-left" onClick="previousFeature()"></div>
+                        <a id="featuredTitle" href="/"></a> by
+                        <a id="featuredFullname" href="/"></a>
+                        <div class="icon icon_arrow_circle_right_dark  pull-right" onClick="nextFeature()"></div>
+                    </div>
+
+                </div>
+            </div>
+        </featured>
 		<div class="container">
 			<div id="searchHeader" class="row">
-				<div class="col-xs-8" bariol>
-					//分类
+				<h3 class="bariol col-xs-12">优秀作品展览</h3>
+				<div class="col-xs-8 bariol">
+					<ul>
+						<li class="worksNav"><p>推荐</p></li>
+						<li class="worksNav"><p>游戏</p></li>
+						<li class="worksNav"><p>可视化</p></li>
+						<li class="worksNav worksNavLast"><p>粒子</p></li>
+					</ul>
 				</div>
 				<div class="col-xs-4 bariol text-right">
 					<h3>
@@ -66,80 +85,151 @@
 			<ul id="searchResults" class="sketchList">
 				<li class="col-xs-4 col-sm-1 sketchLi">
 					<a class="sketchThumbContainer" href="/">
-						<img src="image/" class="sketchThumb">
+						<img src="image/example1.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
 					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example2.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example3.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example4.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example5.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example6.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example7.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example8.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example9.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example10.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example11.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example12.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example12.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example11.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example10.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example9.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example8.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example7.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example6.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example5.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example4.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example3.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example2.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 				<li class="col-xs-4 col-sm-1 sketchLi">
-					<a class="sketchThumbContainer" href="/"></a>
+					<a class="sketchThumbContainer" href="/">
+						<img src="image/example1.jpg" class="sketchThumb">
+						<img src="image/blank.png" class="ratioKeeper">
+					</a>
 				</li>
 			</ul>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/home.js"></script>
 </body>
 </html>
