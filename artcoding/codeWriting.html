@@ -80,7 +80,7 @@
                   <ul>
                     <li class="first">文件
                       <ul class="sub-menu">
-                        <li>新建</li>
+                    <li onclick="addPage()">新建</li>
                         <li>保存</li>
                         <li>另存为</li>
                       </ul>
@@ -95,9 +95,54 @@
                     </li>
                     <li class="first">库
                       <ul class="sub-menu">
-                        <li id="java1">p5.dom </li>
-                        <li id="java2">p5.sound</li>
-                        <li id="java3">p5.collide2d</li>
+                        <li>
+                          <div class="col-xs-6  col-sm-6"  id="java1">
+                          p5.dom
+                        </div>
+                           <div class="col-xs-6  col-sm-6">
+                          <div class="switchtab"> 
+
+<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
+<div class="movetab" data-state="on"></div> 
+<div class="btnSwitchtab btn1">开</div> 
+<div class="btnSwitchtab btn2 ">关</div> 
+</div> 
+</div>
+                        </div>
+                         </li>
+
+                        <li>
+
+                       <div class="col-xs-6  col-sm-6" id="java2">
+                        p5.sound</div>
+                                      <div class="col-xs-6  col-sm-6">
+                          <div class="switchtab"> 
+
+<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
+<div class="movetab" data-state="on"></div> 
+<div class="btnSwitchtab btn1">开</div> 
+<div class="btnSwitchtab btn2 ">关</div> 
+</div> 
+</div>
+                        </div>
+
+                      </li>
+                        <li >
+
+ <div class="col-xs-6  col-sm-6"  id="java3">
+                        p5.collide2d</div>
+                  <div class="col-xs-6  col-sm-6">
+                          <div class="switchtab"> 
+
+<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
+<div class="movetab" data-state="on"></div> 
+<div class="btnSwitchtab btn1">开</div> 
+<div class="btnSwitchtab btn2 ">关</div> 
+</div> 
+</div>
+                        </div>
+
+                      </li>
                       </ul>
 
                     </li>
@@ -105,7 +150,7 @@
                      <li class="first">
                       <div class="switch">  
                       <div class="btn_fath clearfix on" onclick="toogle(this)">  
-                      <div class="move" data-state="on"></div>  
+                      <div class="move" id="move" data-state="on"></div>  
                       <div class="btnSwitch btn1">JS</div>  
                       <div class="btnSwitch2 btn2 ">  JAVA</div>  
                     </div>    
@@ -142,7 +187,7 @@
     </div>
 
     <div id="sketch" class="inactive" style="background-color:rgb(100,100,100);">
-      <iframe id="iframe"></iframe>
+      <iframe id="iframe" name="ifr"></iframe>
 
     </div>
 
@@ -209,19 +254,21 @@
         <div id="codePanel" class="panel container codeOptionsActive active">
             <div class="row">
                 <div id="codeTabs" class="show">
-                    <ul>
+                    <ul id="toptab">
 
-                    <li class="selected">我的草图<div class="icon icon_x_small_dark tabCloseButton"></div></li></ul>
-                  
+                    <li class="selected" id="hh" onClick="tabSelect(this)">我的草图<div class="icon icon_x_small_dark tabCloseButton"  id="tabCloseButton0"></div></li>
+
+                  </ul>
+                
                 </div>
                 <div class="hiddenCodeContainer col-xs-12">
                     <p><img src="/assets/img/icons/icon_hiddenCode.png"></p>
                     <p>As a <a href="/membership/">Plus+ Member</a> feature, this source code is hidden by the owner.</p>
                 </div>
-                <div class="codeContainer col-xs-12 tabPadding fontSize" id="fontSizePanel">
+                <div class="codeContainer col-xs-12 tabPadding fontSize">
 
                 <div class="codePane selected">
-                <textarea class="col-md-12 code" id="code" autocorrect="off" autocapitalize="off" spellcheck="false" style="display: none;">function setup() {
+                <textarea class="col-md-12 code" id="code0" autocorrect="off" autocapitalize="off" spellcheck="false" style="display: none;">function setup() {
   createCanvas(windowWidth, windowHeight);
   background(100);
 
@@ -230,10 +277,10 @@
 function draw() {
   ellipse(mouseX, mouseY, 20, 20);
 }</textarea>
-               <div class="CodeMirror cm-s-eclipse"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 165px; left: 256px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 42px; min-width: 369px; margin-bottom: -17px; border-right-width: 13px; min-height: 215px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 214px; top: 161px; height: 23px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">1</div><div class="CodeMirror-gutter-elt" style="left: 0px; width: 11px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">setup</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="  ">  </span><span class="cm-variable">createCanvas</span>(<span class="cm-variable">windowWidth</span>, <span class="cm-variable">windowHeight</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="  ">  </span><span class="cm-variable">background</span>(<span class="cm-number">100</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">4</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">5</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">6</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">7</div><div class="CodeMirror-gutter-elt" style="left: 0px; width: 11px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">draw</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">8</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text=" ">  </span><span class="cm-variable">ellipse</span>(<span class="cm-variable">mouseX</span>, <span class="cm-variable">mouseY</span>, <span class="cm-number">20</span>, <span class="cm-number">20</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -42px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 11px; width: 21px;">9</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 215px;"></div><div class="CodeMirror-gutters" style="height: 647px;"><div class="CodeMirror-gutter CodeMirror-foldgutter"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 31px;"></div></div></div></div> </div>
+            
        </div>
 
-                <div class="codeOptions hidden-xs active">
+                <div class="codeOptions hidden-xs active" id="codeOptions">
                     <div class="icon icon_edit_dark"  id="sidecode" onclick="asidecode()" ></div>
                     <!-- Nav tabs -->
 
@@ -305,8 +352,14 @@ function draw() {
 
                         </div>
                         <div role="tabpanel" class="tab-pane" id="sketchFiles">
-                           请先保存您的草图                          <ul></ul>
-                        </div>
+                           请先保存您的草图    
+
+                             <form id="upfile">  
+        选择一个文件:  
+        <input type="file" name="file" id="upload" />  
+        <br/><br/>  
+    </form>  
+         </div>
 
                     </div>
                 </div>

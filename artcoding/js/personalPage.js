@@ -24,6 +24,7 @@ function loag() {
               i++;
               document.getElementById('editButton').innerHTML='保存';
 
+
               $('#fullname').addClass('edit');
               $('#location').addClass('edit');
               document.getElementById("fullname").contentEditable = true;
@@ -32,6 +33,7 @@ function loag() {
 
           
            $('#additionalFormFields').removeClass('row fadeInOnEdit hide');
+           $('#changepic').removeClass('row fadeInOnEdit hide');
            $('#content').hide();
            $('#toptabs').hide();
            $('#describeme').hide();
@@ -56,6 +58,7 @@ function loag() {
                   $('#passwordField').removeClass('hide'); 
 
            $('#additionalFormFields').addClass('row fadeInOnEdit hide');
+           $('#changepic').addClass('row fadeInOnEdit hide');
            $('#content').show();
            $('#toptabs').show();
            $('#describeme').show();
@@ -70,4 +73,27 @@ function loag() {
 
 
 
+function readFiles(evt){  
+var files=evt.target.files;  
+if(!files){  
+console.log("the file is invaild");  
+return;  
+}  
+for(var i=0, file; file=files[i]; i++){  
+var imgele=new Image();  
+var thesrc=window.URL.createObjectURL(file);  
+imgele.src=thesrc;  
+imgele.onload=function(){  
 
+ 
+$("#toppic").attr("src",this.src);  
+}  
+}  
+}  
+
+
+$(document).ready(function(){  
+$("#logoimg").change(function(e){  
+readFiles(e)  
+});  
+}); 

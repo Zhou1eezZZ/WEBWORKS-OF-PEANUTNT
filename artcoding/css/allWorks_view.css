@@ -212,3 +212,42 @@ tag:after {
 	    background: url(./../image/icon_grid_black@2x.png) center center no-repeat;
     background-size: 21px 21px;
 }
+
+
+.sketchList.listView li:not(.newSketchLi) .sketchLabel01 {
+    min-height: 100px;
+    opacity: 1;
+    background: none;
+    left: 0;
+    padding-left: 650px;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: visible;
+    resize: vertical;
+}
+
+.sketchLabel01 {
+    height: auto;
+    cursor: pointer;
+    color: #333;
+    position: absolute;
+    z-index: 3;
+    padding: 3px;
+    font-family: bariol;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    background: rgba(255, 255, 255, 1);
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 200ms, max-height 800ms, max-width 800ms;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: left;
+    overflow: hidden;
+    border: 1px solid transparent;
+}

@@ -926,12 +926,12 @@ body.codeOptionsActive.codeMode #console .consolePin{
 }
 
 .icon_comment {
-    background: url('/assets/img/sketch/icon_comment.png') center left no-repeat;
+    background: url('../image/icon_comment.png') center left no-repeat;
 }
 
 .icon_fork {
     width: 15px !important;
-    background: url('/assets/img/sketch/icon_fork.png') center left no-repeat;
+    background: url('../image/icon_fork.png') center left no-repeat;
     border-radius: 0;
 }
 
@@ -945,7 +945,7 @@ body.codeOptionsActive.codeMode #console .consolePin{
 
 .icon_share {
     right: 0px;
-    background: url('/assets/img/icons/icon_share.png') center left no-repeat;
+    background: url('../image/icon_share.png') center left no-repeat;
     background-size: 20px 22px;
     width: 20px !important;
 }
@@ -1270,7 +1270,7 @@ body.codeOptionsActive.codeMode #console .consolePin{
 }
 
 .newComment .buttonContainer {
-    visibility: hidden;
+    /*visibility: hidden;*/
     background: #333;
     text-align: center;
     position: relative;
@@ -1680,12 +1680,14 @@ h1.sketchTitle>span {
     /* leave room for tab-pane hidden scrollbar*/
     padding-right: 0;
     right: -300px;
+	top: 0;
     width: 300px;
     padding: 15px 0 10px 15px;
 }
 
 #codePanel .codeOptions.active {
     right: 0;
+	top: 0;
 }
 
 #codePanel .codeOptions .icon_edit_dark {

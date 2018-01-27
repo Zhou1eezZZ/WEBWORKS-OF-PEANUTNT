@@ -52,7 +52,8 @@
 .sub-menu li{
 
 	color: white;
-	width: 90px;
+	width: 130px;
+  float: left;
 	background-color: rgba(160, 160, 160, 0.9); 
 
 }
@@ -229,3 +230,68 @@ input {
 .highContrastThemeLiBorderColor{
 	border-bottom-color: #6d8a88 !important;
 }
+
+
+#codePanel #codeTabs ul{
+   display:inline;
+   white-space: nowrap;
+}
+#codePanel #codeTabs li{
+  display: inline-block;
+           
+            white-space:nowrap;
+            text-align: center;
+/*            word-wrap:break-word;  遇到空格整个单词显示不完就自动换行到下一行
+word-break:break-all;  /*如果一行没有空格就到头截断单词换行*/
+
+}
+#codePanel #codeTabs li:hover{
+       visibility: visible; 
+     opacity: 1;
+}
+#upload{
+  width: 450px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.switchtab{ 
+width: 40px; 
+} 
+.btn_fathtab{ 
+margin-top: 10px; 
+position: relative; 
+border-radius: 20px; 
+}  
+.btnSwitchtab{ 
+height: 20px; 
+width: 20px; 
+border:none; 
+color: #fff; 
+line-height: 20px; 
+font-size: 16px; 
+text-align: center; 
+z-index: 1; 
+} 
+.movetab{ 
+z-index: 60; 
+width: 20px; 
+border-radius: 20px; 
+height: 20px; 
+position: absolute; 
+cursor: pointer; 
+border: 1px solid #828282; 
+background-color: #f1eff0; 
+box-shadow: 1px 2px 2px 1px #fff inset,0 0 5px 1px #999; 
+} 
+.on .movetab{ 
+left: 20px; 
+} 
+.on.btn_fathtab{ 
+background-color: black; 
+} 
+.off.btn_fathtab{ 
+background-color: #828282; 
+} 
+
+

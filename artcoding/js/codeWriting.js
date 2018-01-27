@@ -9,9 +9,10 @@
   //           });
   //       });
 
-
-var myTextarea = document.getElementById('code');
-var editor=CodeMirror.fromTextArea(myTextarea,{
+var numOfTabs = 1;
+var myTextarea = document.getElementById('code0');
+var editor = new Array();
+	editor[0]=CodeMirror.fromTextArea(myTextarea,{
         lineNumbers: true,
         mode: "javascript",
         theme: 'eclipse',
@@ -52,9 +53,10 @@ function toogle(th){
          tree1.innerText ="java.applet";
          tree2.innerText ="java.awt ";
          tree3.innerText ="java.awt.image";
-         editor.setOption("mode","text/x-java");
+		 for(var i=0;i<editor.length;i++){
+			editor[i].setOption("mode","text/x-java");
+		 }
          $(".sub-menu").addClass("sub-menu2");
-         console.log(editor);
 
          
      
@@ -67,6 +69,9 @@ function toogle(th){
       tree1.innerText ="p5.dom";
          tree2.innerText ="p5.sound ";
          tree3.innerText ="p5.collide2d";
+		for(var i=0;i<editor.length;i++){
+			editor[i].setOption("mode","javascript");
+		 }
           $(".sub-menu").removeClass("sub-menu2");
          
     
@@ -74,6 +79,25 @@ function toogle(th){
     $(th).removeClass("off").addClass("on");  
   }  
 }  
+
+function toogle2(th){ 
+var ele = $(th).children(".movetab"); 
+if(ele.attr("data-state") == "on"){ 
+ele.animate({left: "0"}, 300, function(){ 
+ele.attr("data-state", "off"); 
+}); 
+$(th).removeClass("on").addClass("off"); 
+}else if(ele.attr("data-state") == "off"){ 
+ele.animate({left: '20px'}, 300, function(){ 
+$(this).attr("data-state", "on"); 
+}); 
+$(th).removeClass("off").addClass("on"); 
+} 
+}  
+
+
+
+
 var i=1;
 
 function asidecode(){
@@ -98,15 +122,25 @@ function save(){
      $('#codePanel').addClass('inactive');
 
      $('#editSketchButton').text('提交');
+	if($("#move").attr("data-state") == "on"){
+		var canvas = window.frames["ifr"].document.getElementById("defaultCanvas0");
+	}else if($("#move").attr("data-state") == "off"){
+		var canvas = window.frames["ifr"].document.getElementById("processing-canvas");
+	}
+	var dataURL = canvas.toDataURL();
+	var screenshot = document.getElementById("screenshot");
+	screenshot.style.backgroundImage = "url("+dataURL+")";
 }
 
-var panel = document.getElementById("fontSizePanel");
+var panel = $('div.codeContainer');
+var codeOptions = $('#codeOptions');
 function addFont(){
 	var txt=document.getElementById("txtFont");
 	var a=txt.value;
 	a++;
 	txt.value=a;
-	panel.style.fontSize = a+'px';
+	panel.css("font-size",a+'px');
+	codeOptions.css("font-size",16+'px');
 }
 function subFont(){
 	var txt=document.getElementById("txtFont");
@@ -114,13 +148,15 @@ function subFont(){
 	if(a>1){
 		a--;
 		txt.value=a;
-		panel.style.fontSize = a+'px';
+		panel.css("font-size",a+'px');
+		codeOptions.css("font-size",16+'px');
 		if(a==12){
 			window.alert("某些浏览器限制最小字体大小为12px");
 		}
 	}else{
 		txt.value=1;
-		panel.style.fontSize = a+'px';
+		panel.css("font-size",a+'px');
+		codeOptions.css("font-size",16+'px');
 	}
 
 }
@@ -129,8 +165,9 @@ function addTab(){
 	var a=txt.value;
 	a++;
 	txt.value=a;
-	//console.log(editor);
-	editor.options.tabSize=a;
+	for(var i=0;i<editor.length;i++){
+		editor[i].options.tabSize=a;
+	}
 }
 function subTab(){
 	var txt=document.getElementById("txtTab");
@@ -138,10 +175,14 @@ function subTab(){
 	if(a>1){
 		a--;
 		txt.value=a;
-		editor.options.tabSize=a;
+		for(var i=0;i<editor.length;i++){
+			editor[i].options.tabSize=a;
+		}
 	}else{
 		txt.value=1;
-		editor.options.tabSize=1;
+		for(var i=0;i<editor.length;i++){
+			editor[i].options.tabSize=a;
+		}
 	}
 
 }
@@ -150,6 +191,9 @@ function subTab(){
 var themeLight = $('#lightTheme');
 var themeDark = $('#darkTheme');
 var themeHighContrast = $('#highContrastTheme');
+var isLight = true;
+var isDark = false;
+var isHighContrast = false;
 function removeClass(){
 //	$('#codeTabs ul').removeClass('lightThemeUlColor');
 //	$('#codeTabs ul').find('li').removeClass('lightThemeLiBorderColor');
@@ -162,9 +206,14 @@ themeLight.click(function(){
 	themeLight.removeClass('labelInactive');
 	themeDark.addClass('labelInactive');
 	themeHighContrast.addClass('labelInactive');
-	editor.setOption("theme","eclipse");
-	panel.style.background = '#f7f7f7';
+	for(var i=0;i<editor.length;i++){
+		editor[i].setOption("theme","eclipse");
+	}
+	panel.css("background-color","#f7f7f7");
 	removeClass();
+	isLight = true;
+	isDark = false;
+	isHighContrast = false;
 //	$('#codeTabs ul').addClass('lightThemeUlColor');
 //	$('#codeTabs ul').find('li').addClass('lightThemeLiBorderColor');
 })
@@ -172,21 +221,31 @@ themeDark.click(function(){
 	themeLight.addClass('labelInactive');
 	themeDark.removeClass('labelInactive');
 	themeHighContrast.addClass('labelInactive');
-	editor.setOption("theme","pastel-on-dark");
-	panel.style.background = '#34302f';
+	for(var i=0;i<editor.length;i++){
+		editor[i].setOption("theme","pastel-on-dark");
+	}
+	panel.css("background-color","#34302f");
 	removeClass();
 	$('#codeTabs ul').addClass('darkThemeUlColor');
 	$('#codeTabs ul').find('li').addClass('darkThemeLiBorderColor');
+	isLight = false;
+	isDark = true;
+	isHighContrast = false;
 })
 themeHighContrast.click(function(){
 	themeLight.addClass('labelInactive');
 	themeDark.addClass('labelInactive');
 	themeHighContrast.removeClass('labelInactive');
-	editor.setOption("theme","seti");
-	panel.style.background = '#0e1112';
+	for(var i=0;i<editor.length;i++){
+		editor[i].setOption("theme","seti");
+	}
+	panel.css("background-color","#0e1112");
 	removeClass();
 	$('#codeTabs ul').addClass('highContrastThemeUlColor');
 	$('#codeTabs ul').find('li').addClass('highContrastThemeLiBorderColor');
+	isLight = false;
+	isDark = false;
+	isHighContrast = true;
 })
 
 //console.log(editor.getValue());
@@ -205,15 +264,19 @@ codePlay.click(function(){
 	var iframe = document.getElementById('iframe');
 	var iframedocument;
 	var iframeWindow;
+	var value = "";
+	for(var i=0;i<editor.length;i++){
+		value+=editor[i].getValue();
+	}
 
 	iframedocument =  iframe.contentDocument;//contentWindow.document;
 	iframeWindow = iframe.contentWindow;
 	iframedocument.open();
 	if($(".move").attr("data-state") == "on"){
-		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script></head><body><script>'+editor.getValue()+'</script></body></html>');
+		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script></head><body><script>'+value+'</script></body></html>');
 	}
 	if($(".move").attr("data-state") == "off"){
-		iframedocument.write('<html><head><script src="js/processing.js"></script> </head><body><script type="application/processing" target="processing-canvas">'+editor.getValue()+'</script><canvas id="processing-canvas"> </canvas></body></html>');
+		iframedocument.write('<html><head><script src="js/processing.js"></script> </head><body><script type="application/processing" target="processing-canvas">'+value+'</script><canvas id="processing-canvas"> </canvas></body></html>');
 	}
 	iframedocument.close();
 })
@@ -225,3 +288,85 @@ codeWrite.click(function(){
 	$('#sketch').removeClass('active');
     $('#sketch').addClass('inactive');
 })
+
+
+
+
+function addPage(){
+
+	//console.log("add");
+	document.getElementById("toptab").innerHTML+="<li class=\"selected\" contenteditable=\"false\" onClick=\"tabSelect(this)\"  ondblclick=\"changename(this)\" onblur=\"returnname(this)\">新草图<div contenteditable=\"false\" class=\"icon icon_x_small_dark tabCloseButton\" id=\"tabCloseButton"+ numOfTabs+"\" onclick=\"remove(this)\"></div></li>";
+	for(var i=0;i<editor.length;i++){
+		$("#tabCloseButton"+i).parent().removeClass("selected");
+	}
+	$("#codeOptions").before("<div class=\"codePane selected\"><textarea class=\"col-md-12 code\" id=\"code" + numOfTabs + "\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" style=\"display: none;\"></textarea>");
+	var addTextarea = document.getElementById('code'+numOfTabs);
+		editor[numOfTabs] = CodeMirror.fromTextArea(addTextarea,{
+			lineNumbers: true,
+			mode: "javascript",
+			//theme: 'eclipse',
+			toggleComment: true,
+			keyMap: 'sublime',
+			indentWithTabs: true,
+			tabSize: 2,
+			foldGutter: true,
+			fixedGutter: false,
+			gutters: ['CodeMirror-foldgutter']
+		  });
+	if(isLight){
+		editor[numOfTabs].setOption("theme","eclipse");
+	}else if(isDark){
+		editor[numOfTabs].setOption("theme","pastel-on-dark");
+		$("#tabCloseButton"+numOfTabs).parent().addClass("darkThemeLiBorderColor");
+	}else if(isHighContrast){
+		editor[numOfTabs].setOption("theme","seti");
+		$("#tabCloseButton"+numOfTabs).parent().addClass("highContrastThemeLiBorderColor");
+	}
+	for(var i=0;i<editor.length-1;i++){
+		$("#code"+i).parent().removeClass("selected");
+	}
+	numOfTabs++;
+}
+function tabSelect(e){
+	var str = $(e).children('div').attr('id');
+	var num = parseInt(str.replace(/[^0-9]/ig,""));
+	for(var i=0;i<editor.length;i++){
+		$("#tabCloseButton"+i).parent().removeClass("selected");
+	}
+	for(var i=0;i<editor.length;i++){
+		$("#code"+i).parent().removeClass("selected");
+	}
+	$(e).addClass("selected");
+	$("#code"+num).parent().addClass("selected");
+}
+function remove(e){
+	//console.log($(e).attr('id'));
+	if (e && e.stopPropagation) {//非IE浏览器 
+	  e.stopPropagation(); 
+	} 
+	else {//IE浏览器 
+	window.event.cancelBubble = true; 
+	} 
+	var str = $(e).attr('id');
+	var num = parseInt(str.replace(/[^0-9]/ig,""));
+	var index = $(e).parent().index();
+	console.log($("#code0").parent().index());
+	$(e).parent().prev().addClass("selected");
+	$(e).parent().remove();
+	//$("#code"+(num-1)).parent().addClass("selected");
+	$("div.codePane").eq(index-1).addClass("selected");
+	$("#code"+num).parent().remove();
+}
+var strId="";
+function changename(e){
+	//console.log($(e).attr('contenteditable'));
+	$(e).attr("contenteditable",true);
+	strId=$(e).children("div").attr("id");
+	$(e).children().remove();
+}
+
+function returnname(e){
+	$(e).attr("contenteditable",false);
+	console.log(strId);
+	$(e)[0].innerHTML+="<div contenteditable=\"false\" class=\"icon icon_x_small_dark tabCloseButton\" id=\""+strId+"\" onclick=\"remove(this)\"></div>";
+}
