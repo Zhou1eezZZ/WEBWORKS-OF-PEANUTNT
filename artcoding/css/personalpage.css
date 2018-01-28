@@ -17,10 +17,11 @@
 
 
 #topPanel .by .byLocation {
-     padding-left: 0px; 
-    text-align: right;
-    line-height: 1;
-    white-space: nowrap;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 3px;
+    line-height: 0.95;
+    position: relative;
 }
 
 

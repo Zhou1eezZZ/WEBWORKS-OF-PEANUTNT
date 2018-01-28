@@ -25,14 +25,15 @@ function loag() {
               document.getElementById('editButton').innerHTML='保存';
 
 
-              $('#fullname').addClass('edit');
+              $('#topPanel').addClass('edit');
+			  $('#fullname').addClass('edit');
               $('#location').addClass('edit');
               document.getElementById("fullname").contentEditable = true;
 				document.getElementById("location").contentEditable = true;
                $('#passwordField').addClass('hide');
 
           
-           $('#additionalFormFields').removeClass('row fadeInOnEdit hide');
+           $('#additionalFormFields').removeClass('fadeInOnEdit hide');
            $('#changepic').removeClass('row fadeInOnEdit hide');
            $('#content').hide();
            $('#toptabs').hide();
@@ -51,13 +52,14 @@ function loag() {
               document.getElementById('editButton').innerHTML='编辑';
              i++;
 
+			  $('#topPanel').removeClass('edit');
               $('#fullname').removeClass('edit');
               $('#location').removeClass('edit');
               document.getElementById("fullname").contentEditable = false;
               document.getElementById("location").contentEditable = false;
                   $('#passwordField').removeClass('hide'); 
 
-           $('#additionalFormFields').addClass('row fadeInOnEdit hide');
+           $('#additionalFormFields').addClass('fadeInOnEdit hide');
            $('#changepic').addClass('row fadeInOnEdit hide');
            $('#content').show();
            $('#toptabs').show();

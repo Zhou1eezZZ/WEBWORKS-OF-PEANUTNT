@@ -7,198 +7,132 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <title>PersonalPage</title>
- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>    
 <script src="js/bootstrap.min.js"></script>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/user_view.css">
 <link rel="stylesheet" href="css/main.css">
-
 <link rel="stylesheet" href="css/personalpage.css">
 </head>
 
 <body>
 
 <div class="navbar navbar-fixed-top" role="navigation">
-		<div class="row iconsRow">
-			<div id="websiteControls">
-				<div class="OPlogo icon">
-					<a href="index.html" id="logoLight">
-						<img alt="logo" src="image/logo.png" width="50" height="40">
-					</a>
-					<a href="index.html" id="logoDark">
-						<img src="image/logoHover.png" width="50" height="40">
-					</a>
-				</div>
+	<div class="row iconsRow">
+		<div id="websiteControls">
+			<div class="OPlogo icon">
+				<a href="index.html" id="logoLight">
+					<img alt="logo" src="image/logo.png" width="50" height="40">
+				</a>
+				<a href="index.html" id="logoDark">
+					<img src="image/logoHover.png" width="50" height="40">
+				</a>
 			</div>
-			<div id="userTabs" class="text-center">
-				
-
-			</div>
-			<div id="userControls" class="text-right">
-                            <div id="editButton"  class="editButton" data-loading-text="保存中.." data-active-text="保存" data-normal-text="编辑" autocomplete="off" onclick="loag()" id="eiditButton">编辑</div>
-
-                           <!--  <button type="button" id="eiditButton" class="editButton" data-loading-text="保存中.." data-active-text="保存修改" data-normal-text="编辑资料" autocomplete="off" onclick="loag()" id="eiditButton">编辑资料</button> -->
-            </div>
+		</div>
+		<div id="userTabs" class="text-center"></div>
+		<div id="userControls" class="text-right">
+			<div id="editButton"  class="editButton" data-loading-text="保存中.." data-active-text="保存" data-normal-text="编辑" autocomplete="off" onclick="loag()" id="eiditButton">编辑</div>
 		</div>
 	</div>
+</div>
 
 
 
 
 <div id="topPanel" class="panel active color-light" style="min-height: 226px; max-height:2200px;">
-            <form id="editForm" class="container" autocomplete="off" autocorrect="off">
-                <!--<div class="row title">
-                    <h1 class="specialType col-md-offset-2 col-md-10">
-                </h1>
-                </div>-->
-                <div class="row meta">
-                    <div class="by portrait">
-                        <div class="col-xs-offset-5 col-xs-2 col-sm-offset-5.5 col-sm-4.5 userSetup  text-center">
-                            <a href="107357" class="userThumbContainer noLink  ">
-    <img src="image/blank.png" class="ratioKeeper">
-    
-    <img src="image/blank.png" data-src="107357/thumbnail" class="userThumb noThumbnail" id="toppic">
-   <!--  <div class="plus"><img src="img/blank.png" class="ratioKeeper"></div> -->
-</a>
+	<form id="editForm" class="container" autocomplete="off" autocorrect="off">
+		<div class="row meta">
+			<div class="by portrait">
+				<div class="col-xs-offset-5 col-xs-2 col-sm-offset-5.5 col-sm-4.5 userSetup  text-center">
+					<a href="107357" class="userThumbContainer noLink  ">
+					<img src="image/blank.png" class="ratioKeeper">
 
-                            <div class="col-xs-offset-5 userSetup  text-center">
+					<img src="image/blank.png" data-src="107357/thumbnail" class="userThumb noThumbnail" id="toppic">
+					</a>
 
-                                   <div class="addpic row fadeInOnEdit hide" id="changepic">  
-<button>改头像</button>  
-<form>  
-<input id="logoimg" class="addlogo" type="file" multiple accept="image/*" name="logo">  
-</form>  
-</div>  
+					<div class="col-xs-offset-5 userSetup  text-center">
 
-                            </div>
-                                <div class="fadeInOnEdit uploadUserImage">
+						<div class="addpic row fadeInOnEdit hide" id="changepic">  
+							<button>改头像</button>
+							<input id="logoimg" class="addlogo" type="file" multiple accept="image/*" name="logo"> 
+						</div>  
 
-                                    <img src="image/blank.png" class="cropit-gradient ratioKeeper">
+					</div>
+					<div class="fadeInOnEdit uploadUserImage">
 
-                                    <input type="file" class="cropit-image-input hide" accept="image/*">
-                                    <div class="cropit-image-preview" style="background-repeat: no-repeat;"><img src="image/blank.png" class="ratioKeeper"></div>
-                                    <input type="range" class="cropit-image-zoom-input" min="0" max="1" step="0.01">
-                                    <div class="buttons">
-                                        <a href="javascript:;" id="confirmUserImage" class="icon_followed"></a>
-                                        <a href="javascript:;" id="cancelUserImage" class="icon_cancel"></a>
-                                    </div>
-                                    <input type="hidden" name="userImageData" class="hidden-image-data">
-                                    <div class="icon_camera"></div>
+						<img src="image/blank.png" class="cropit-gradient ratioKeeper">
 
-                                </div>
-                        </div>
+						<input type="file" class="cropit-image-input hide" accept="image/*">
+						<div class="cropit-image-preview" style="background-repeat: no-repeat;"><img src="image/blank.png" class="ratioKeeper"></div>
+						<input type="range" class="cropit-image-zoom-input" min="0" max="1" step="0.01">
+						<div class="buttons">
+							<a href="javascript:;" id="confirmUserImage" class="icon_followed"></a>
+							<a href="javascript:;" id="cancelUserImage" class="icon_cancel"></a>
+						</div>
+						<input type="hidden" name="userImageData" class="hidden-image-data">
+						<div class="icon_camera"></div>
 
+					</div>
+				</div>
 
-                   <!--      <div id="plusMemberInfo" class="hidden-xs col-sm-5" style="opacity: 0; visibility: hidden;">
+				<div class="byText col-xs-12 col-sm-offset-2 col-sm-8">
+					<div class="row">
+						<div class="fullnameContainer">
 
-                                                                        You are not a <strong>Plus+</strong> Member.
-                                            <br> Why not support OpenProcessing while enjoying more space, no ads, custom licenses and private sketches?
-                                            <br>
-                                            <a href="/membership/"><strong>Learn More</strong></a>
-                                                                    </div> -->
-
-                        <div class="byText col-xs-12 col-sm-offset-3 col-sm-6">
-                            <div class="row">
-                                <div class="fullnameContainer">
-
-                                    <div  id="fullname" class="fullname bariol editable col-xs-12  text-center " name="fullname" label="name" contenteditable="false">lynn</div>
-
-                                    
-                                </div>
-
-                                <div class="byLocation col-xs-12 col-sm-offset-3 col-sm-6">
-                                                                   
-                                    <div id="location" class=" location editable " label="location" name="location" contenteditable="false">杭州</div>
-                                </div>
+							<div  id="fullname" class="fullname bariol editable col-xs-12  text-center " name="fullname" label="昵称" contenteditable="false">lynn</div>
 
 
-                                 <div  id="describeme" class="describeme bariol editable text-center col-xs-12 " name="describeme" label="name" contenteditable="false">个性签名：忽然变成了一条咸鱼</div>
-                            </div>
-                        </div>
-                    </div>
+						</div>
 
-                    <div id="description" class="description col-md-offset-3 col-md-6">
-                        <div class="descriptionBorder"></div>
-                        <div class="descriptionText"></div>
-                    </div>
+						<div class="byLocation col-xs-12 text-center">
+							<em id="locationLabel" class="hideOnEdit">来自:</em>
+							<div id="location" class="location editable text-center" label="位置" name="location" contenteditable="false"><em>杭州</em></div>
+						</div>
 
 
-                </div>
-                                    <div id="additionalFormFields" class="row fadeInOnEdit hide">
-                        <!--                        blanks to disable autocomplete-->
-                        <input type="text" style="display:none">
-                        <input type="password" style="display:none">
-                        <formitem class="col-md-5 col-md-offset-3">
-                            <label for="email">邮箱</label>
-                            <input type="email" required="" autocorrect="false" autocomplete="off" class="field" name="email" label="email" value="1624954751@qq.com">
-                        </formitem>
+						 <div  id="describeme" class="describeme bariol editable text-center col-xs-12 " name="describeme" label="name" contenteditable="false">个性签名：忽然变成了一条咸鱼</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="additionalFormFields" class="row fadeInOnEdit OPLiveForm hide">
+			<input type="text" style="display:none">
+			<input type="password" style="display:none">
+			<formitem class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-2">
+				<label for="email">邮箱</label>
+				<input type="email" required="" autocorrect="false" autocomplete="off" class="field" name="email" label="email" value="1624954751@qq.com">
+			</formitem>
 
-                            <formitem class="col-md-5 col-md-offset-3">
-                            <label for="email">手机</label>
-                            <input type="email" required="" autocorrect="false" autocomplete="off" class="field" name="email" label="phone" value="18100170835">
-                        </formitem>
+			<formitem class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-2">
+				<label for="phoneNumber">手机</label>
+				<input type="tel" required="" autocorrect="false" autocomplete="off" class="field" name="email" label="phone" value="18100170835">
+			</formitem>
 
-                            <formitem class="col-md-5 col-md-offset-3">
-                            <label for="email">个性签名</label>
-                            <input type="email" required="" autocorrect="false" autocomplete="off" class="field" name="email" label="motto" value="突然变成了一条咸鱼">
-                        </formitem>
+			<formitem class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-2">
+				<label for="motto">个性签名</label>
+				<input type="text" required="" autocorrect="false" autocomplete="off" class="field" name="email" label="motto" value="突然变成了一条咸鱼">
+			</formitem>
 
-
-
-
-                        <formitem id="changePassword" class="col-md-5 col-md-offset-3">
-                            <label>密码</label>
-                            <a href="#" class="labelLink" id="changePasswordLink">点击更改密码</a>
-                            <input id="passwordField" class="field hide" type="password" name="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofill="false" placeholder="">
-                        </formitem>
-
-
-
-                      <!--   <formitem class="col-md-5 col-md-offset-3">
-                            <label for="website">Website</label>
-                            <input type="url" class="field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofill="false" name="website" label="Website" value="">
-                        </formitem> -->
-                                                       <!--  <formitem class="col-md-5 col-md-offset-3">
-
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <a href="/user/notifications/" class="labelLink" target="_blank">Manage Your Email Notifications</a>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <a href="#" class="labelLink" id="deleteAccountLink" data-toggle="modal" data-target="#deleteAccountModal">Delete Account?</a>
-
-                                </formitem> -->
-                          <!--       <div id="interview" class="row fadeInOnEdit">
-                                    <h1 class="col-md-offset-1 col-md-5 specialType">Your Fictional<br>  Magazine Interview</h1>
-                                    <input type="hidden" name="interview" value="[]">
-                                    <ul class="col-md-offset-0 col-md-5">
-
-                                    </ul>
-
-
-                                </div> -->
-                    </div>
-                    
-                  
-                        <div class="row tabs" id="toptabs">
-
-                            <div class="col-md-12 tabContainer">
-                                
-                            <ul id="top-tabs" class="nav nav-tabs " role="tablist">
-             					<li role="presentation" class="active"><a name="sketches" href="#" data-target="#sketchesContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfSketches">3</span>我的作品</a>
-                                </li>
-                                <li role="presentation" class=""><a name="hearts" href="#" data-target="#heartsContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfHearts">8</span> 我的收藏</a></li>
-                                <li role="presentation" class=""><a name="follower" href="#" data-target="#followerContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfFollowers">5</span> 我的关注</a></li>
-                                 <li role="presentation" class=""><a name="follower" href="#" data-target="#followingContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfFollowing">5</span> 关注我的</a></li>
-                                     
-                                </ul></div>
-                        </div>
-            </form>
-        </div>
+			<formitem id="changePassword" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-2">
+				<label>密码</label>
+				<a href="#" class="labelLink" id="changePasswordLink">点击更改密码</a>
+				<input id="passwordField" class="field hide" type="password" name="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofill="false" placeholder="">
+			</formitem>
+		</div>
+		<div class="row tabs" id="toptabs">
+			<div class="col-md-12 tabContainer">
+				<ul id="top-tabs" class="nav nav-tabs " role="tablist">
+					<li role="presentation" class="active"><a name="sketches" href="#" data-target="#sketchesContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfSketches">3</span>我的作品</a>
+					</li>
+					<li role="presentation" class=""><a name="hearts" href="#" data-target="#heartsContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfHearts">8</span> 我的收藏</a></li>
+					<li role="presentation" class=""><a name="follower" href="#" data-target="#followerContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfFollowers">5</span> 我的关注</a></li>
+					 <li role="presentation" class=""><a name="follower" href="#" data-target="#followingContainer" role="tab" data-toggle="tab"><span class="count" id="numberOfFollowing">5</span> 关注我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</form>
+</div>
 
 
 
@@ -214,7 +148,7 @@
 							<hr>
                             <ul class="row text-center sketchList">
                                 <li class="newSketchLi hideOnGuest sketchLi col-xs-3 col-sm-3 col-md-3">
-                                    <a class="sketchThumbContainer newSketch " href="/sketch/create">
+                                    <a class="sketchThumbContainer newSketch " href="codeWriting.html">
 
                                         <img src="image/blank.png" class="ratioKeeper">
                                         <div class="sketchLabel">
@@ -277,7 +211,7 @@
                     </div>
 							</div>
 
-							<div id="rightpart">
+							<div id="rightpart" style="margin-top: 50px;">
 							<p class="bariol">足迹</p>
 							<hr>
 
@@ -478,6 +412,7 @@
                
         </div>
     </div>
+</div>
 
 <script src="js/personalPage.js"></script>
 <script type="text/javascript">

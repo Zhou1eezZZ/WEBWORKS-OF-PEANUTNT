@@ -195,7 +195,7 @@ label {
     position: absolute;
     margin-bottom: 5px;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 18px;
     display: block;
     bottom: -1px !important;
     left: 0px !important;
@@ -458,12 +458,7 @@ button.btn.btn-primary.green{
     padding: 5px 80px;
 }
 
-.edit #location {
-    display: block;
-    margin-top: 30px;
-    margin-left: 15px;
-    text-align: left;
-}
+
 /*以下为codeWriting代码*/
 body {
     /* background: #f7f3ed; */
@@ -524,7 +519,7 @@ button, button.btn, a.btn {
     border-radius: 4px;
     outline: none;
     padding: 5px 10px 5px 10px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 
@@ -553,7 +548,7 @@ button, button.btn, a.btn {
     position: absolute;
     margin-bottom: 1px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 18px;
     display: block;
     bottom: -1px !important;
     left: 0px !important;
@@ -602,14 +597,14 @@ formItem>.description {
 .editable.edit::before, .selectable.edit::before, .toggleable.edit::before, .removable.edit::before {
     content: attr(label) !important;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 18px;
     display: block;
     position: absolute;
     bottom: -1px !important;
     left: 0px !important;
     border-bottom: 1px solid rgb(245, 245, 245);
     width: auto !important;
-    height: 19px !important;
+    height: 25px !important;
     line-height: 1;
     font-family: 'PT Sans';
     font-weight: 600;
@@ -619,8 +614,4 @@ formItem>.description {
     display: block;
     float: right;
 }
-
-
-
-
 
