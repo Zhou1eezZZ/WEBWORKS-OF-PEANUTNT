@@ -47,7 +47,7 @@ function toogle(th){
   var tree3=document.getElementById("java3");
 
   if(ele.attr("data-state") == "on"){  
-    ele.animate({left: "0"}, 300, function(){  
+    ele.animate({left: "2px"}, 300, function(){  
         $("#mymodal").modal("toggle");
       ele.attr("data-state", "off"); 
          tree1.innerText ="java.applet";
@@ -63,7 +63,7 @@ function toogle(th){
     });  
     $(th).removeClass("on").addClass("off");  
   }else if(ele.attr("data-state") == "off"){  
-    ele.animate({left: '40px'}, 300, function(){  
+    ele.animate({left: '52px'}, 300, function(){  
       $(this).attr("data-state", "on");  
        $("#mymodal").modal("toggle");
       tree1.innerText ="p5.dom";
@@ -114,7 +114,6 @@ function asidecode(){
 }
 
 function save(){
-    console.log("save");
      $('#editSketchPanel').removeClass('inactive');
      $('#editSketchPanel').addClass('active');
 
@@ -252,7 +251,7 @@ themeHighContrast.click(function(){
 
 var codePlay = $('#codePlay');
 var codeWrite = $('#codeWrite');
-codePlay.click(function(){
+function beforeCodePlay(){
 	codePlay.addClass('selected');
 	codeWrite.removeClass('selected');
 	$('#codePanel').removeClass('active');
@@ -273,13 +272,23 @@ codePlay.click(function(){
 	iframeWindow = iframe.contentWindow;
 	iframedocument.open();
 	if($(".move").attr("data-state") == "on"){
-		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script></head><body><script>'+value+'</script></body></html>');
+		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script></head><body style="margin:0;"><script>'+value+'</script></body></html>');
 	}
 	if($(".move").attr("data-state") == "off"){
-		iframedocument.write('<html><head><script src="js/processing.js"></script> </head><body><script type="application/processing" target="processing-canvas">'+value+'</script><canvas id="processing-canvas"> </canvas></body></html>');
+		iframedocument.write('<html><head><script src="js/processing.js"></script> </head><body style="margin:0;"><script type="application/processing" target="processing-canvas">'+value+'</script><canvas id="processing-canvas"> </canvas></body></html>');
 	}
 	iframedocument.close();
-})
+}
+document.getElementById("iframe").onload=function(){
+	if($("#move").attr("data-state") == "on"){
+		var canvas = window.frames["ifr"].document.getElementById("defaultCanvas0");
+	}else if($("#move").attr("data-state") == "off"){
+		var canvas = window.frames["ifr"].document.getElementById("processing-canvas");
+	}
+	var iframe = document.getElementById('iframe');
+	iframe.style.width = canvas.width + "px";
+	iframe.style.height = canvas.height + "px";
+};
 codeWrite.click(function(){
 	codeWrite.addClass('selected');
 	codePlay.removeClass('selected');
@@ -287,6 +296,7 @@ codeWrite.click(function(){
     $('#codePanel').addClass('active');
 	$('#sketch').removeClass('active');
     $('#sketch').addClass('inactive');
+	$('#editSketchPanel').addClass('inactive');
 })
 
 
@@ -339,23 +349,26 @@ function tabSelect(e){
 	$(e).addClass("selected");
 	$("#code"+num).parent().addClass("selected");
 }
+
+var DEL = false;
 function remove(e){
-	//console.log($(e).attr('id'));
-	if (e && e.stopPropagation) {//非IE浏览器 
-	  e.stopPropagation(); 
-	} 
-	else {//IE浏览器 
-	window.event.cancelBubble = true; 
-	} 
-	var str = $(e).attr('id');
-	var num = parseInt(str.replace(/[^0-9]/ig,""));
-	var index = $(e).parent().index();
-	console.log($("#code0").parent().index());
-	$(e).parent().prev().addClass("selected");
-	$(e).parent().remove();
-	//$("#code"+(num-1)).parent().addClass("selected");
-	$("div.codePane").eq(index-1).addClass("selected");
-	$("#code"+num).parent().remove();
+	if(DEL){
+		if (e && e.stopPropagation) {//非IE浏览器 
+		  e.stopPropagation(); 
+		} 
+		else {//IE浏览器 
+		window.event.cancelBubble = true; 
+		} 
+		var str = $(e).attr('id');
+		var num = parseInt(str.replace(/[^0-9]/ig,""));
+		var index = $(e).parent().index();
+		$(e).parent().remove();
+		$("#code"+num).parent().remove();
+		$("#hh").click();
+	}else{
+		alert("删除这个TAB后里面所有代码不会被保存！请再次点击叉号确认删除操作！");
+		DEL = true;
+	}
 }
 var strId="";
 function changename(e){

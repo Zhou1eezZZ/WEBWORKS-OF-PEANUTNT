@@ -67,8 +67,7 @@
 						<img src="image/logoHover.png" width="50" height="40">
 					</a>
 				</div>
-                <ul id="navPath">
-                                    </ul>
+                <ul id="navPath"></ul>
                 <div class="icons">
 
                 </div>
@@ -94,55 +93,46 @@
                       </ul>
                     </li>
                     <li class="first">库
-                      <ul class="sub-menu">
+                      <ul class="sub-menu sub-last">
                         <li>
-                          <div class="col-xs-6  col-sm-6"  id="java1">
-                          p5.dom
-                        </div>
-                           <div class="col-xs-6  col-sm-6">
-                          <div class="switchtab"> 
-
-<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
-<div class="movetab" data-state="on"></div> 
-<div class="btnSwitchtab btn1">开</div> 
-<div class="btnSwitchtab btn2 ">关</div> 
-</div> 
-</div>
-                        </div>
-                         </li>
+                        	<div class="col-xs-6  col-sm-6"  id="java1">
+                          		p5.dom
+                        	</div>
+                            <div class="col-xs-6  col-sm-6">
+                          		<div class="switchtab"> 
+									<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
+										<div class="movetab" data-state="on"></div> 
+										<div class="btnSwitchtab btn1">开</div> 
+										<div class="btnSwitchtab btn2 ">关</div> 
+									</div>
+								</div>
+                        	</div>
+                        </li>
 
                         <li>
-
-                       <div class="col-xs-6  col-sm-6" id="java2">
-                        p5.sound</div>
-                                      <div class="col-xs-6  col-sm-6">
-                          <div class="switchtab"> 
-
-<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
-<div class="movetab" data-state="on"></div> 
-<div class="btnSwitchtab btn1">开</div> 
-<div class="btnSwitchtab btn2 ">关</div> 
-</div> 
-</div>
-                        </div>
-
-                      </li>
-                        <li >
-
- <div class="col-xs-6  col-sm-6"  id="java3">
-                        p5.collide2d</div>
-                  <div class="col-xs-6  col-sm-6">
-                          <div class="switchtab"> 
-
-<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
-<div class="movetab" data-state="on"></div> 
-<div class="btnSwitchtab btn1">开</div> 
-<div class="btnSwitchtab btn2 ">关</div> 
-</div> 
-</div>
-                        </div>
-
-                      </li>
+                       		<div class="col-xs-6  col-sm-6" id="java2">p5.sound</div>
+							<div class="col-xs-6  col-sm-6">
+								<div class="switchtab"> 
+									<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
+										<div class="movetab" data-state="on"></div> 
+										<div class="btnSwitchtab btn1">开</div> 
+										<div class="btnSwitchtab btn2 ">关</div> 
+									</div> 
+								</div>
+							</div>
+                        </li>
+                        <li>
+ 							<div class="col-xs-6  col-sm-6"  id="java3">p5.collide2d</div>
+                  			<div class="col-xs-6  col-sm-6">
+                          		<div class="switchtab"> 
+									<div class="btn_fathtab clearfix on" onclick="toogle2(this)"> 
+										<div class="movetab" data-state="on"></div> 
+										<div class="btnSwitchtab btn1">开</div> 
+										<div class="btnSwitchtab btn2 ">关</div> 
+									</div> 
+								</div>
+                        	</div>
+                        </li>
                       </ul>
 
                     </li>
@@ -152,7 +142,7 @@
                       <div class="btn_fath clearfix on" onclick="toogle(this)">  
                       <div class="move" id="move" data-state="on"></div>  
                       <div class="btnSwitch btn1">JS</div>  
-                      <div class="btnSwitch2 btn2 ">  JAVA</div>  
+                      <div class="btnSwitch2 btn2 ">JAVA</div>  
                     </div>    
                     </div>  
 
@@ -164,7 +154,7 @@
                       
                     <div id="mainControls" class="col-xs-6  col-sm-2 text-center">
                     
-                    <div class="icon icon_play" id="codePlay" data-target="#sketch"></div>
+                    <div class="icon icon_play" id="codePlay" data-target="#sketch" onclick="beforeCodePlay()"></div>
                     <div class="icon icon_code selected" id="codeWrite" data-target="#codePanel"></div>
                 </div>
 
@@ -260,10 +250,6 @@
 
                   </ul>
                 
-                </div>
-                <div class="hiddenCodeContainer col-xs-12">
-                    <p><img src="/assets/img/icons/icon_hiddenCode.png"></p>
-                    <p>As a <a href="/membership/">Plus+ Member</a> feature, this source code is hidden by the owner.</p>
                 </div>
                 <div class="codeContainer col-xs-12 tabPadding fontSize">
 
