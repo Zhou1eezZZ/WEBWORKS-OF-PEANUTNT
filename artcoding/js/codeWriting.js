@@ -126,9 +126,11 @@ function save(){
 	}else if($("#move").attr("data-state") == "off"){
 		var canvas = window.frames["ifr"].document.getElementById("processing-canvas");
 	}
-	var dataURL = canvas.toDataURL();
-	var screenshot = document.getElementById("screenshot");
-	screenshot.style.backgroundImage = "url("+dataURL+")";
+	if(canvas!=null){
+		var dataURL = canvas.toDataURL();
+		var screenshot = document.getElementById("screenshot");
+		screenshot.style.backgroundImage = "url("+dataURL+")";
+	}
 }
 
 var panel = $('div.codeContainer');
@@ -266,16 +268,22 @@ function beforeCodePlay(){
 	var value = "";
 	for(var i=0;i<editor.length;i++){
 		value+=editor[i].getValue();
+		value+=" \n ";
 	}
-
+//	try{
+//		eval(value);
+//	}catch(err){
+//		console.log(err.message);
+//	}
+	
 	iframedocument =  iframe.contentDocument;//contentWindow.document;
 	iframeWindow = iframe.contentWindow;
 	iframedocument.open();
 	if($(".move").attr("data-state") == "on"){
-		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script></head><body style="margin:0;"><script>'+value+'</script></body></html>');
+		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script><script src="js/error.js"></script> </head><body style="margin:0;"><script>'+value+'</script></body></html>');
 	}
 	if($(".move").attr("data-state") == "off"){
-		iframedocument.write('<html><head><script src="js/processing.js"></script> </head><body style="margin:0;"><script type="application/processing" target="processing-canvas">'+value+'</script><canvas id="processing-canvas"> </canvas></body></html>');
+		iframedocument.write('<html><head><script src="js/processing.js"></script><script src="js/error.js"></script> </head><body style="margin:0;"><script type="application/processing" target="processing-canvas">'+value+'</script><canvas id="processing-canvas"> </canvas></body></html>');
 	}
 	iframedocument.close();
 }
@@ -285,9 +293,11 @@ document.getElementById("iframe").onload=function(){
 	}else if($("#move").attr("data-state") == "off"){
 		var canvas = window.frames["ifr"].document.getElementById("processing-canvas");
 	}
-	var iframe = document.getElementById('iframe');
-	iframe.style.width = canvas.width + "px";
-	iframe.style.height = canvas.height + "px";
+	if(canvas!=null){
+		var iframe = document.getElementById('iframe');
+		iframe.style.width = canvas.width + "px";
+		iframe.style.height = canvas.height + "px";
+	}
 };
 codeWrite.click(function(){
 	codeWrite.addClass('selected');
@@ -362,6 +372,8 @@ function remove(e){
 		var str = $(e).attr('id');
 		var num = parseInt(str.replace(/[^0-9]/ig,""));
 		var index = $(e).parent().index();
+		editor.splice(index,1);
+		numOfTabs--;
 		$(e).parent().remove();
 		$("#code"+num).parent().remove();
 		$("#hh").click();
