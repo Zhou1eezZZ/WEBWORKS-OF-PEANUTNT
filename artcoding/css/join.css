@@ -64,7 +64,7 @@
     overflow-y: hidden;
 }
 body{
-    overflow-y: hidden;
+/*    overflow-y: hidden;*/
 }
 
 
@@ -72,7 +72,7 @@ body{
 #topPanel01 {
     margin-top: 28vh;
     margin-bottom: 50px;
-    height: 300px;
+    height: 700px;
 }
 #topPanel02 {
     margin-top: 28vh;
@@ -93,6 +93,7 @@ body{
 }
 #citydiv{
     margin-bottom: 30px;
+	line-height: 29px;
 }
 #schoollocation {
     margin-bottom: 1px;
@@ -101,6 +102,7 @@ body{
 }
 #schooldiv{
     margin-bottom: 30px;
+	line-height: 29px;
 }
 #sel1{
     margin-bottom: 1px;

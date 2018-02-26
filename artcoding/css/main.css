@@ -162,11 +162,18 @@ a.btn.btn-default.green{
 }
 .worksNav{
 	float: left;
+	cursor: pointer;
+}
+.worksNavFont{
+	font-weight:bold !important;
 }
 .worksNav p{
 	border-right: solid 1px #515151;
 	padding: 0 10px;
 	font-size: 20px;
+}
+.display{
+	display:none;
 }
 .worksNavLast p{
 	border: none;
@@ -614,4 +621,24 @@ formItem>.description {
     display: block;
     float: right;
 }
+input::-webkit-input-placeholder{ /*WebKit browsers*/
+	color: #aaa;
+}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+	color: #aaa;
+}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+	color: #aaa;
+}
 
+.navbarHover{
+	position: absolute;
+	height: 50px;
+	right: 250px;
+	top: 0;
+	line-height: 50px;
+	color: #000;
+}
+.navbarHover a{
+	color: #27b1be;
+}

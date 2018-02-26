@@ -40,6 +40,13 @@
 
 </head>
 <body class="codeMode codeOptionsActive" style="background-color: rgb(100,100,100);">
+	<div class="floatAlert" id="floatAlert" style="display: none;">
+		<div class="alertContent" id="alertContent">
+			<h1 id="alertTitle" style="margin-bottom: 20px;">Test</h1>
+			<p id="alertP">test<br>test</p>
+			<div class="alertButton" onClick="alertConfirm()">知道了</div>
+		</div>
+	</div>
   <div class="modal" id="mymodal">
                       <div class="modal-dialog">
                       <div class="modal-content">
@@ -63,7 +70,7 @@
 					<a href="index.html" id="logoLight">
 						<img alt="logo" src="image/logo.png" width="50" height="40">
 					</a>
-					<a href="index.html" id="logoDark">
+					<a href="index.html" onClick="return goIndex();" id="logoDark">
 						<img src="image/logoHover.png" width="50" height="40">
 					</a>
 				</div>
@@ -324,12 +331,12 @@ function draw() {
                                 <settinglabel class="col-xs-12">自动保存</settinglabel>
                                <settingoptions class="col-xs-12 text-center ">
                                                                             
-                                        <label class="radioLabel col-xs-4 labelInactive" for="sketchModeOption3">开
+                                        <label class="radioLabel col-xs-4 labelInactive" for="sketchModeOption3" onClick="autoSave()">开
                                         </label>
                                         <div class="radioLabel col-xs-4" for="sketchModeOption3">
                                         </div>
                                         
-                                        <label class="radioLabel col-xs-4 labelInactive" for="sketchModeOption2">关
+                                        <label class="radioLabel col-xs-4 labelInactive" for="sketchModeOption2" onClick="autoSave()">关
                                         </label>
 
                                        

@@ -42,14 +42,14 @@
                 <div class="row" style="margin-top: 10px;">
                     <formitem class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
                         <label for="password">密码</label>
-                        <input id="password" type="password" required="" class="field edit" name="password">
+                        <input id="password" type="password" maxlength="16" minlength="6" required="" class="field edit" name="password">
                         <div id="recoverLink" class="text-right"><a href="/home/recover" class="text-right small">忘记密码</a></div>
                     </formitem>
                 </div>
                 <div class="row">
                     <div class="buttons col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
                         <div id="errorMessage" class="errorMessage"></div>
-                        <button id="submitButton" type="submit" href="/home/signin" data-loading-text="Signing in.." data-normal-text="Sign in" class="btn btn-primary green ">登录</button>
+                        <button id="submitButton" type="submit" onclick="window.location.href='personalPage.html'" class="btn btn-primary green ">登录</button>
                     </div>
                 </div>
                 <div class="row">

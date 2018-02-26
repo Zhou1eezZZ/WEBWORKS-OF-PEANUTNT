@@ -48,3 +48,44 @@ function previousFeature(){
 		initIframe();
 	}
 }
+
+function p1(){
+	$("#worksNavP1").addClass("worksNavFont");
+	$("#worksNavP2").removeClass("worksNavFont");
+	$("#worksNavP3").removeClass("worksNavFont");
+	$("#worksNavP4").removeClass("worksNavFont");
+	$("#searchResults").removeClass("display");
+	$("#searchResults1").addClass("display");
+	$("#searchResults2").addClass("display");
+	$("#searchResults3").addClass("display");
+}
+function p2(){
+	$("#worksNavP1").removeClass("worksNavFont");
+	$("#worksNavP2").addClass("worksNavFont");
+	$("#worksNavP3").removeClass("worksNavFont");
+	$("#worksNavP4").removeClass("worksNavFont");
+	$("#searchResults").addClass("display");
+	$("#searchResults1").removeClass("display");
+	$("#searchResults2").addClass("display");
+	$("#searchResults3").addClass("display");
+}
+function p3(){
+	$("#worksNavP1").removeClass("worksNavFont");
+	$("#worksNavP2").removeClass("worksNavFont");
+	$("#worksNavP3").addClass("worksNavFont");
+	$("#worksNavP4").removeClass("worksNavFont");
+	$("#searchResults").addClass("display");
+	$("#searchResults1").addClass("display");
+	$("#searchResults2").removeClass("display");
+	$("#searchResults3").addClass("display");
+}
+function p4(){
+	$("#worksNavP1").removeClass("worksNavFont");
+	$("#worksNavP2").removeClass("worksNavFont");
+	$("#worksNavP3").removeClass("worksNavFont");
+	$("#worksNavP4").addClass("worksNavFont");
+	$("#searchResults").addClass("display");
+	$("#searchResults1").addClass("display");
+	$("#searchResults2").addClass("display");
+	$("#searchResults3").removeClass("display");
+}

@@ -99,3 +99,35 @@ $("#logoimg").change(function(e){
 readFiles(e)  
 });  
 }); 
+
+function foo(){  
+    if(confirm("确定要退出登录吗？")){  
+        return true;  
+    }  
+    return false;  
+ } 
+function changePassword(){
+	$("#passwordConfirmTips").css("display","block");
+	$("#changePassword1").css("display","block");
+	$("#changePassword2").css("display","block");
+}
+function checkPasswordFiled(){
+	$("#passwordConfirmTips").css("display","none");
+}
+function checkPW(){
+	var pwd1 = document.getElementById("newPasswordField1").value;
+	var pwd2 = document.getElementById("newPasswordField2").value;
+	
+	if(pwd1 == pwd2){
+		document.getElementById("newPasswordTips").style.display = "none";
+	}else{
+		document.getElementById("newPasswordTips").style.display = "block";
+	}
+}function submit(){ 
+	if(document.getElementById('editButton').innerHTML=='编辑'){
+		if(confirm("确认提交资料吗？")){  
+			return true;  
+		}  
+		return false; 
+		} 
+ }    

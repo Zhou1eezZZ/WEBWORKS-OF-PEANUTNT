@@ -8,7 +8,6 @@
   //          );
   //           });
   //       });
-
 var numOfTabs = 1;
 var myTextarea = document.getElementById('code0');
 var editor = new Array();
@@ -33,7 +32,6 @@ $('.code_title li').hover(function() {
 $(this).find('.sub-menu').css('display', 'block'); 
 }, function() { 
 $(this).find('.sub-menu').css('display', 'none'); 
-
 }); 
 
 }); 
@@ -254,6 +252,7 @@ themeHighContrast.click(function(){
 var codePlay = $('#codePlay');
 var codeWrite = $('#codeWrite');
 function beforeCodePlay(){
+	$(window).resize(); 
 	codePlay.addClass('selected');
 	codeWrite.removeClass('selected');
 	$('#codePanel').removeClass('active');
@@ -266,32 +265,45 @@ function beforeCodePlay(){
 	var iframedocument;
 	var iframeWindow;
 	var value = "";
+	var javaCanRun = true;
+	var jsCanRun = true;
 	for(var i=0;i<editor.length;i++){
 		value+=editor[i].getValue();
 		value+=" \n ";
 	}
-//	try{
-//		eval(value);
-//	}catch(err){
-//		console.log(err.message);
-//	}
-	
+	if(value.indexOf("draw()")==-1||value.indexOf("setup()")==-1||value.indexOf("void")==-1){
+		javaCanRun = false;
+	}
+	if(value.indexOf("setup()")==-1||value.indexOf("draw()")==-1||value.indexOf("function")==-1){
+		jsCanRun = false;
+	}
 	iframedocument =  iframe.contentDocument;//contentWindow.document;
 	iframeWindow = iframe.contentWindow;
 	iframedocument.open();
-	if($(".move").attr("data-state") == "on"){
+	if($(".move").attr("data-state") == "on"&&jsCanRun){
 		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script><script src="js/error.js"></script> </head><body style="margin:0;"><script>'+value+'</script></body></html>');
+	}else if($(".move").attr("data-state") == "on"&&!jsCanRun){
+		$("#alertContent h1").html("提示：");
+		$("#alertContent p").html("确认编写的是否为JS代码<br>或代码内缺少setup和draw两个核心函数");
+		$(window).resize();
+		$(".floatAlert").css("display","block");
 	}
-	if($(".move").attr("data-state") == "off"){
+	if($(".move").attr("data-state") == "off"&&javaCanRun){
 		iframedocument.write('<html><head><script src="js/processing.js"></script><script src="js/error.js"></script> </head><body style="margin:0;"><script type="application/processing" target="processing-canvas">'+value+'</script><canvas id="processing-canvas"> </canvas></body></html>');
+	}else if($(".move").attr("data-state") == "off"&&!javaCanRun){
+		$("#alertContent h1").html("提示：");
+		$("#alertContent p").html("确认编写的是否为Java代码<br>或代码内缺少setup和draw两个核心函数");
+		$(window).resize();
+		$(".floatAlert").css("display","block");
 	}
 	iframedocument.close();
 }
 document.getElementById("iframe").onload=function(){
+	var canvas;
 	if($("#move").attr("data-state") == "on"){
-		var canvas = window.frames["ifr"].document.getElementById("defaultCanvas0");
+		canvas = window.frames['ifr'].document.getElementById("defaultCanvas0");
 	}else if($("#move").attr("data-state") == "off"){
-		var canvas = window.frames["ifr"].document.getElementById("processing-canvas");
+		canvas = window.frames['ifr'].document.getElementById("processing-canvas");
 	}
 	if(canvas!=null){
 		var iframe = document.getElementById('iframe');
@@ -378,7 +390,9 @@ function remove(e){
 		$("#code"+num).parent().remove();
 		$("#hh").click();
 	}else{
-		alert("删除这个TAB后里面所有代码不会被保存！请再次点击叉号确认删除操作！");
+		$("#alertContent h1").html("警告：");
+		$("#alertContent p").html("删除这个TAB后里面所有代码不会被保存！<br>再次点击TAB的叉号确认执行删除操作！");
+		$(".floatAlert").css("display","block");
 		DEL = true;
 	}
 }
@@ -395,3 +409,23 @@ function returnname(e){
 	console.log(strId);
 	$(e)[0].innerHTML+="<div contenteditable=\"false\" class=\"icon icon_x_small_dark tabCloseButton\" id=\""+strId+"\" onclick=\"remove(this)\"></div>";
 }
+function alertConfirm(){
+	$(".floatAlert").css("display","none");
+	$("#codeWrite").click();
+}
+function goIndex(){
+	if(confirm("确认返回主页吗？\n你的代码不会被保存！")){  
+        return true;  
+    }  
+    return false; 
+}
+function autoSave(){
+	alert("此功能正在测试！");
+}
+$(window).resize(function(){
+	$("#alertContent").css({
+		position:"absolute",
+		left: ($(window).width() - $("#alertContent").outerWidth())/2, 
+        top: ($(window).height() - $("#alertContent").outerHeight())/2 
+	});
+});

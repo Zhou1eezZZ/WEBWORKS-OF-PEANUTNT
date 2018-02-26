@@ -172,4 +172,19 @@ input:-webkit-autofill:active {
     background-position: center bottom 20px;
 }
 
-
+.userTypeCB{
+	float: left;
+	width: auto !important;
+	margin-top: 10px !important;
+}
+.userTypeCBP{
+	float: left;
+	line-height: 32px;
+	margin-bottom: 0;
+}
+.checkboxUT{
+/*	width: 20%;*/
+	height: 34px;
+	text-align: center;
+	float: left;
+}
