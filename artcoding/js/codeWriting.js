@@ -1,13 +1,3 @@
-  // $(document).ready(function () {
-  //           $(".navgation input").each(function () {
-  //               var this_div = $(".navgation div");
-  //               var _inx = $(".navgation input").index(this);
-  //               $(this).click(
-  //               function () { this_div.eq(_inx).slideToggle(); },
-  //               function () { this_div.eq(_inx).slideToggle(); }
-  //          );
-  //           });
-  //       });
 var numOfTabs = 1;
 var myTextarea = document.getElementById('code0');
 var editor = new Array();
@@ -21,9 +11,7 @@ var editor = new Array();
         tabSize: 2,
         foldGutter: true,
         fixedGutter: false,
-//      foldOptions: {
-//          widget: '\u2026'
-//      },
+		scrollbarStyle:"null",
         gutters: ['CodeMirror-foldgutter']
       });
 
@@ -118,7 +106,6 @@ function save(){
      $('#codePanel').removeClass('active');
      $('#codePanel').addClass('inactive');
 
-     $('#editSketchButton').text('提交');
 	if($("#move").attr("data-state") == "on"){
 		var canvas = window.frames["ifr"].document.getElementById("defaultCanvas0");
 	}else if($("#move").attr("data-state") == "off"){
@@ -129,6 +116,24 @@ function save(){
 		var screenshot = document.getElementById("screenshot");
 		screenshot.style.backgroundImage = "url("+dataURL+")";
 	}
+	//console.log($('#editSketchButton').text());
+	if($('#editSketchButton').text()=="提交"){
+		if(confirm("是否确认提交？")){
+			value = "";
+			for(var i=0;i<editor.length;i++){
+				if(i!=0){
+					value+=" \n ";
+				}
+				value+=editor[i].getValue();
+			}
+			localStorage.removeItem("artCodingAutoSave");//3.26新
+			//alert(value);
+			window.location.href = "personalPage.html";
+			return true;  
+		}  
+		return false; 
+		}
+	$('#editSketchButton').text('提交');
 }
 
 var panel = $('div.codeContainer');
@@ -251,7 +256,9 @@ themeHighContrast.click(function(){
 
 var codePlay = $('#codePlay');
 var codeWrite = $('#codeWrite');
+var value = "";
 function beforeCodePlay(){
+	$('#editSketchButton').text('保存');
 	$(window).resize(); 
 	codePlay.addClass('selected');
 	codeWrite.removeClass('selected');
@@ -264,12 +271,14 @@ function beforeCodePlay(){
 	var iframe = document.getElementById('iframe');
 	var iframedocument;
 	var iframeWindow;
-	var value = "";
 	var javaCanRun = true;
 	var jsCanRun = true;
+	value = "";
 	for(var i=0;i<editor.length;i++){
+		if(i!=0){
+			value+=" \n ";
+		}
 		value+=editor[i].getValue();
-		value+=" \n ";
 	}
 	if(value.indexOf("draw()")==-1||value.indexOf("setup()")==-1||value.indexOf("void")==-1){
 		javaCanRun = false;
@@ -312,6 +321,7 @@ document.getElementById("iframe").onload=function(){
 	}
 };
 codeWrite.click(function(){
+	$('#editSketchButton').text('保存');
 	codeWrite.addClass('selected');
 	codePlay.removeClass('selected');
 	$('#codePanel').removeClass('inactive');
@@ -343,6 +353,7 @@ function addPage(){
 			tabSize: 2,
 			foldGutter: true,
 			fixedGutter: false,
+			scrollbarStyle:"null",
 			gutters: ['CodeMirror-foldgutter']
 		  });
 	if(isLight){
@@ -419,9 +430,43 @@ function goIndex(){
     }  
     return false; 
 }
+
 function autoSave(){
-	alert("此功能正在测试！");
+	value = "";
+	for(var i=0;i<editor.length;i++){
+		if(i!=0){
+			value+=" \n ";
+		}
+		value+=editor[i].getValue();
+	}
+	localStorage.setItem("artCodingAutoSave",value);
 }
+//打开页面时检查草稿箱是否有保存代码
+if(localStorage.getItem("artCodingAutoSave")!=null){
+	if(confirm("您的草稿箱中有上次未完成的代码。 \n是否将代码恢复？")){
+		var code = localStorage.getItem("artCodingAutoSave");
+		editor[0].setValue(code);
+		localStorage.removeItem("artCodingAutoSave");
+	}else{
+		localStorage.removeItem("artCodingAutoSave");
+	}
+}
+//定时调用自动保存函数
+var autoSaveInt;
+autoSaveON();
+//自动保存开关函数
+function autoSaveON(){
+	$("#autoSaveON").css("color","#fff");
+	$("#autoSaveOFF").css("color","#777");
+	autoSaveInt = self.setInterval("autoSave()",10000);
+}
+function autoSaveOFF(){
+	$("#autoSaveON").css("color","#777");
+	$("#autoSaveOFF").css("color","#fff");
+	window.clearInterval(autoSaveInt);
+	localStorage.removeItem("artCodingAutoSave");
+}
+
 $(window).resize(function(){
 	$("#alertContent").css({
 		position:"absolute",

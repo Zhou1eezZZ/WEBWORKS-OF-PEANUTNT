@@ -123,7 +123,8 @@ function checkPW(){
 	}else{
 		document.getElementById("newPasswordTips").style.display = "block";
 	}
-}function submit(){ 
+}
+function submit(){ 
 	if(document.getElementById('editButton').innerHTML=='编辑'){
 		if(confirm("确认提交资料吗？")){  
 			return true;  
@@ -131,3 +132,25 @@ function checkPW(){
 		return false; 
 		} 
  }    
+function imgChange(e){
+	var file = e.target.files[0];
+	var img = new Image();
+	var imgFile;
+	
+	var reader = new FileReader();
+	reader.onload = function(e){
+		imgFile = e.target.result;
+		img.src = imgFile;
+		img.onload = function(){
+			var canvas = document.createElement('canvas');
+			canvas.width = img.width;
+			canvas.height = img.height;
+			var ctx = canvas.getContext('2d');
+			ctx.drawImage(img,0,0,canvas.width,canvas.height);
+			var url = canvas.toDataURL("image/jpeg",0.5);
+			//console.log(url);
+			$('#logoimg').src = url;	
+		}
+	};
+	reader.readAsDataURL(file);
+}
