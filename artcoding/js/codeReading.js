@@ -328,3 +328,67 @@ $(window).resize(function(){
         top: ($(window).height() - $("#alertContent").outerHeight())/2 
 	});
 });
+
+//4.23
+function doClose(){
+    $('.newCommentContainer ').removeClass('active');
+    $('.comments ').removeClass('active');
+    $("#comtextarea").empty();
+}
+
+function comtextarea(event){
+	 if(window.event) event.cancelBubble = true;
+    else evt.stopPropagation();
+	$('.newCommentContainer ').addClass('active');
+	$('.comments ').addClass('active');
+	return false;
+}
+function sendcom(){
+	if($("#comtextarea").text()=="")
+	{
+		console.log("send");
+		$('.newCommentContainer ').removeClass('active');
+    $('.comments ').removeClass('active');
+    return false;
+	}else{
+
+
+	var oBox = document.createElement("div");
+	
+    oBox.className = "box";
+    var oDiv = document.createElement("div");
+
+   oDiv.className = "nicheng";
+   oDiv.innerHTML = "lynn";
+
+   oBox.appendChild(oDiv);
+
+var oDiv = document.createElement("div");
+oDiv.className = "pinglun";
+oDiv.innerHTML = $("#comtextarea").text();
+oBox.appendChild(oDiv);
+
+var oDiv = document.createElement("div");
+oDiv.className = "shijian";
+var oDate = new Date();
+oDiv.innerHTML =oDate.getFullYear()+"年"+(oDate.getMonth()+1)+"月"+oDate.getDate()+"日      "+"<a href='javascript:;'>删除</a> <hr>";
+
+oBox.appendChild(oDiv);
+
+	var oUl1 = document.getElementById("ul1");
+	oUl1.appendChild(oBox);
+	
+var aA = oDiv.getElementsByTagName("a");
+ 
+for(var i = 0;i<aA.length;i++)
+{
+aA[i].onclick=function(){
+	console.log("delete");
+   //oUl1.removeChild(this.parentNode);
+  oDiv.parentNode.remove();
+
+}
+}
+ 
+}
+}

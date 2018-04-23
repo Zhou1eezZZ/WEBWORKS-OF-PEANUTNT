@@ -412,10 +412,11 @@ function changename(e){
 	//console.log($(e).attr('contenteditable'));
 	$(e).attr("contenteditable",true);
 	strId=$(e).children("div").attr("id");
-	$(e).children().remove();
+	
 }
 
 function returnname(e){
+	$(e).children().remove();//4.18 修改
 	$(e).attr("contenteditable",false);
 	console.log(strId);
 	$(e)[0].innerHTML+="<div contenteditable=\"false\" class=\"icon icon_x_small_dark tabCloseButton\" id=\""+strId+"\" onclick=\"remove(this)\"></div>";

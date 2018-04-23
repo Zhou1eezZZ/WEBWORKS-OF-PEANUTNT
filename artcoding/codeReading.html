@@ -73,7 +73,7 @@
 						<img alt="logo" src="image/logo.png" width="50" height="40">
 					</a>
 					<a href="index.html" onClick="return goIndex();" id="logoDark">
-						<img src="image/logoHover.png" width="50" height="40">
+						<img src="image/logoHover.png" width="50" height="40" alt="artCoding">
 					</a>
 				</div>
                 <ul id="navPath"></ul>
@@ -164,7 +164,12 @@
                             <div class="metric hide" data-target="#shareSidePanel">
                             </div>
                         </div>
-
+<!--					   4/2修改-->
+						<div class="metricGroup">
+                            <div class="icon icon_fork" data-target="#forkSidePanel" title="fork it"></div>
+                            <div id="forkCount" class="metric" data-target="#forkSidePanel">
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
@@ -338,39 +343,18 @@ function draw() {
 
 
                                <div role="tabpanel" class="tab-pane" id="sketchFiles">
-                            <div id="comentOptions" class="radioGroup row">
-                                  <settinglabel class="col-xs-12">
 
                                     <div class="comments row">
-                                    
-            <div class="comment col-sm-12">
-                            <h3 class="commentName bariol">
-                                <a href="/user/107357">lynn</a>
-
-                                <hr>
-                            </h3>
-                            <div class="commentBody">go!</div>
-                            <div class="commentMeta">
-                                <hr>
-                                <div class="row">
-                                    <div class="commentDate col-sm-8">Just now</div>
-                                    <div class="col-sm-4 text-right">
-                                        <div class="icon icon_flag" data-toggle="modal" data-target="#flagCommentModal"></div>
-                                        <div class="icon icon_delete" data-toggle="modal" data-target="#deleteCommentModal"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div></div>
+										<ul id="ul1" class="col-sm-12"></ul>
+									  </div>
 
                         <div class="newCommentContainer row">
                     <div class="newComment">
-                        <div class="textarea toTextarea toTextarea-placeholder empty" contenteditable="true" data-placeholder="来踩一脚？" id="comment_post"></div>
-                        <div class="buttonContainer">
-                            <button type="button" class="btn btn-primary red " onclick="post()">发布</button>
+                       <div class="textarea toTextarea toTextarea-placeholder empty" contenteditable="true" data-placeholder="我想说..."  onClick="comtextarea(event)" id="comtextarea" ></div>
+                        <div class="buttonContainer fadeInFromNone" >
+                            <button type="button" class="btn btn-primary red " onClick="sendcom()">发送</button>
                             <button type="button" class="btn btn-secondary ">取消</button>
-                          
+                            <div class="small">代码片段用 &lt;code&gt;&lt;/code&gt; </div>
                         </div>
                     </div>
 
@@ -380,18 +364,16 @@ function draw() {
 
                       
                         
-                    </settinglabel>
                                
-                            </div>
+                           
          </div>
-
-                         
 
                                
                         </div>
                     </div>
 					</div>
                 </div>
+	</div>
          
 
 
