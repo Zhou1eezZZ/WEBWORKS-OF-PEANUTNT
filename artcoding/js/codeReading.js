@@ -343,6 +343,10 @@ function comtextarea(event){
 	$('.comments ').addClass('active');
 	return false;
 }
+function sendCancel(){
+	$('.newCommentContainer ').removeClass('active');
+    $('.comments ').removeClass('active');
+}
 function sendcom(){
 	if($("#comtextarea").text()=="")
 	{
@@ -366,6 +370,7 @@ function sendcom(){
 var oDiv = document.createElement("div");
 oDiv.className = "pinglun";
 oDiv.innerHTML = $("#comtextarea").text();
+$("#comtextarea").text("");
 oBox.appendChild(oDiv);
 
 var oDiv = document.createElement("div");
