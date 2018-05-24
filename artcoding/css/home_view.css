@@ -204,3 +204,12 @@ div.diagonalLine {
         z-index: 999;
     }
 }
+
+.footer{
+	width: 100%;
+	line-height: 8px;
+	position: fixed;
+	bottom: -8px;
+	left: 0;
+	margin-bottom:8px; 
+}

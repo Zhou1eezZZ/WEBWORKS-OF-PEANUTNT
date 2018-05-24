@@ -778,7 +778,7 @@ ul#heartsFeed {
         vertical-align: bottom;
         text-align: center;
         float: none;
-        bottom: 5px;
+/*        bottom: 5px;*/
     }
     .tabContainer .nav-tabs>li a {
         padding: 0 !important;

@@ -1,13 +1,11 @@
 .toTextarea {
-    text-align: left;
-    border: 0px;
-    white-space: pre-wrap;
-    white-space: normal;
-    word-wrap: break-word;
-    padding: 1px;
+	text-align: left;
+	border: 0px;
+	white-space: pre-wrap;
+	white-space: normal;
+	word-wrap: break-word;
+	padding: 1px;
 }
- 
-
 /*#topPanel .edit .location   {
      display: block; 
      margin-top: 30px; 
@@ -17,50 +15,65 @@
 
 
 #topPanel .by .byLocation {
-    font-size: 20px;
-    margin-top: 25px;
-    margin-bottom: 3px;
-    line-height: 0.95;
-    position: relative;
+	font-size: 20px;
+	margin-top: 25px;
+	margin-bottom: 3px;
+	line-height: 0.95;
+	position: relative;
 }
-
-
-.addpic{  
-position:relative;  
-margin-left:100px;  
-width:95px;  
-height:30px;  
-}  
-.addlogo {  
-background: none repeat scroll 0 0 rgba(0, 0, 0, 0);  
-cursor: pointer;  
-font-size: 30px;  
-opacity: 0;  
-position: absolute;  
-right: 0;  
-top: 0;  
-z-index: 10;  
-}  
+.addpic {
+	position: relative;
+	margin-left: 100px;
+	width: 95px;
+	height: 30px;
+}
+.addlogo {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	cursor: pointer;
+	font-size: 30px;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
+}
 #topPanel .userThumb {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
-.navbarHover{
+.navbarHover {
 	right: 80px;
 	line-height: 52px;
 }
-.navbarHover a{
+.navbarHover a {
 	color: #fff;
 }
-input::-webkit-input-placeholder{
-            color:#facc2e;
-        }
-        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
-            color:#facc2e;
-        }
-        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-            color:#facc2e;
-        }
-        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
-            color:#facc2e;
-        }
+input::-webkit-input-placeholder {
+ color:#facc2e;
+}
+ input::-moz-placeholder {   /* Mozilla Firefox 19+ */
+ color:#facc2e;
+}
+ input:-moz-placeholder {    /* Mozilla Firefox 4 to 18 */
+ color:#facc2e;
+}
+ input:-ms-input-placeholder {  /* Internet Explorer 10-11 */
+ color:#facc2e;
+}
+/*5.3修改*/
+.opreationButtonDiv {
+	width: 100%;
+	height: 190px;
+	padding: 60px 60px;
+}
+.btn-circle.btn-xl {
+	width: 70px;
+	height: 70px;
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 35px;
+	margin-left: 0;
+	margin-right: 0;
+	float: left;
+}

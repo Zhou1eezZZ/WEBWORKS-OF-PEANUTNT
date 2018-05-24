@@ -29,3 +29,11 @@ v1.04 2018/04/29 codewriting和codereading页面代码整理
 		自动保存代码和恢复代码的完美实现（实现tab分栏）
 		JS语法控制台的优化更新（运行js代码时用户能从控制台中看到错误在哪个tab的哪一行 java代码只能看到错误类型）
 		访问他人主页的加入（新html） 有关注他人的按钮了
+v1.05 2018/05/02 关注按钮样式更改 
+		personalpage样式更改（user_view.css 781行 main.css 382行 404行）
+		加入删除操作
+		加入页脚，修复了运行函数中的一个逻辑bug//5.12
+		修复js代码涉及粒子系统运行会很卡的bug
+		text("frameRate : " + int(frameRate), 30, 30);
+v1.06 2018/05/18 修复java代码多次运行会很卡(添加pjssetup.js 修改processing.js 修改codewriting.js 的 beforecodeplay函数中的processing的生成处逻辑)
+		codereading.js写了评论的后台接口

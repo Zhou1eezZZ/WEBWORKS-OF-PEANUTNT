@@ -2229,6 +2229,7 @@ module.exports = function(options, undef) {
           target = [];
         }
       }
+
       if (target instanceof Array) {
         target[0] = this.elements[0] * x + this.elements[1] * y + this.elements[2];
         target[1] = this.elements[3] * x + this.elements[4] * y + this.elements[5];
@@ -4479,6 +4480,7 @@ module.exports = function(options) {
     this.vertices.push(verts);
   };
   /**
+
    * @member PShapeSVG
    * PShapeSVG.parsePath() helper function
    *
@@ -7715,7 +7717,9 @@ module.exports = function setupParser(Processing, options) {
       "__replace", "__replaceAll", "__replaceFirst", "__toCharArray", "__split",
       "__codePointAt", "__startsWith", "__endsWith", "__matches"];
 
-    // custom functions and properties are added here
+      //OpenProcessing Addition
+      names.push('fullScreen');
+	// custom functions and properties are added here
     if(aFunctions) {
       Object.keys(aFunctions).forEach(function(name) {
         names.push(name);
@@ -9353,6 +9357,7 @@ module.exports = function setupParser(Processing, options) {
             }
           // fonts can be declared as a string containing a url,
           // or a JSON object, containing a font name, and a url
+
           } else if (key === "font") {
             list = value.split(",");
             for (var x = 0, xl = list.length; x < xl; x++) {
@@ -9812,6 +9817,7 @@ module.exports = function setupParser(Processing, options) {
         lastPressedKeyCode = null,
         codedKeys = [ PConstants.SHIFT, PConstants.CONTROL, PConstants.ALT, PConstants.CAPSLK, PConstants.PGUP, PConstants.PGDN,
                       PConstants.END, PConstants.HOME, PConstants.LEFT, PConstants.UP, PConstants.RIGHT, PConstants.DOWN, PConstants.NUMLK,
+
                       PConstants.INSERT, PConstants.F1, PConstants.F2, PConstants.F3, PConstants.F4, PConstants.F5, PConstants.F6, PConstants.F7,
                       PConstants.F8, PConstants.F9, PConstants.F10, PConstants.F11, PConstants.F12, PConstants.META ];
 
@@ -15389,6 +15395,7 @@ module.exports = function setupParser(Processing, options) {
 
           uniformMatrix("uNormalTransform3d", programObject3D, "uNormalTransform", false, normalMatrix.array());
           vertexAttribPointer("aNormal3d", programObject3D, "aNormal", 3, sphereBuffer);
+
         }
         else{
           disableVertexAttribPointer("aNormal3d", programObject3D, "aNormal");
@@ -15797,6 +15804,22 @@ module.exports = function setupParser(Processing, options) {
       doFill = true;
       currentFillColor = color;
     };
+	  
+	  //===OpenProcessing Addition====
+    //add fullScreen
+    DrawingShared.prototype.fullScreen = Drawing2D.prototype.fullScreen = Drawing3D.prototype.fullScreen = function () {
+        var self = this;
+        //add itself to browser behavior
+        $(parent.window).off("resize");
+        $(parent.window).resize(function () {
+            self.fullScreen();
+        });
+
+        var dims = parent.window.getSketchFullScreenDimensions();
+        this.size(dims[0], dims[1]);
+        
+    }
+    //==========
 
     Drawing2D.prototype.fill = function() {
       DrawingShared.prototype.fill.apply(this, arguments);
@@ -18045,6 +18068,7 @@ module.exports = function setupParser(Processing, options) {
      * @see ellipseMode
      */
     Drawing2D.prototype.ellipse = function(x, y, width, height) {
+
       x = x || 0;
       y = y || 0;
 
@@ -18813,6 +18837,7 @@ module.exports = function setupParser(Processing, options) {
       // if image is in the preloader cache return a new PImage
       if (curSketch.imageCache.images[file]) {
         pimg = new PImage(curSketch.imageCache.images[file]);
+
         pimg.loaded = true;
         return pimg;
       }
@@ -20593,6 +20618,7 @@ module.exports = function setupParser(Processing, options) {
     };
 
     Drawing3D.prototype.text$line = function(str, x, y, z, align) {
+
       // handle case for 3d text
       if (textcanvas === undef) {
         textcanvas = document.createElement("canvas");

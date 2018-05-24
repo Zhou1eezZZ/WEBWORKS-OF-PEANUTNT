@@ -270,6 +270,7 @@ var codePlay = $('#codePlay');
 var codeWrite = $('#codeWrite');
 var value = "";
 
+var processor;
 function beforeCodePlay() {
 	$('#editSketchButton').text('保存');
 	$(window).resize();
@@ -281,7 +282,8 @@ function beforeCodePlay() {
 	$('#sketch').addClass('active');
 	$('#editSketchPanel').removeClass('active');
 	$('#editSketchPanel').addClass('inactive');
-	var iframe = document.getElementById('iframe');
+	$("#iframe").attr("style","");
+	var iframe = document.getElementById('iframe');//5.12修改
 	var iframedocument;
 	var iframeWindow;
 	var javaCanRun = true;
@@ -303,7 +305,9 @@ function beforeCodePlay() {
 	iframeWindow = iframe.contentWindow;
 	iframedocument.open();
 	if ($(".move").attr("data-state") == "on" && jsCanRun) {
-		iframedocument.write('<html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script><script src="js/error.js"></script><script src="js/jquery-3.2.1.min.js"></script> </head><body style="margin:0;"><script>' + value + '</script></body></html>');
+		iframedocument.write('<html><head><script language="javascript" type="text/javascript" src="https://www.openprocessing.org/assets/js/vendor/p5jsReleases/p5-release-0.5.2/p5.min.js"></script><script src="js/error.js"></script><script src="js/jquery-3.2.1.min.js"></script> </head><body style="margin:0;"><script>' + value + '</script></body></html>');//5.12修改
+		iframedocument.close();
+		processor = iframeWindow;
 	} else if ($(".move").attr("data-state") == "on" && !jsCanRun) {
 		$("#alertContent h1").html("提示：");
 		$("#alertContent p").html("确认编写的是否为JS代码<br>或代码内缺少setup和draw两个核心函数");
@@ -311,14 +315,17 @@ function beforeCodePlay() {
 		$(".floatAlert").css("display", "block");
 	}
 	if ($(".move").attr("data-state") == "off" && javaCanRun) {
-		iframedocument.write('<html><head><script src="js/processing.js"></script><script src="js/error.js"></script><script src="js/jquery-3.2.1.min.js"></script> </head><body style="margin:0;"><script type="application/processing" target="processing-canvas">' + value + '</script><canvas id="processing-canvas"> </canvas></body></html>');
+		iframedocument.write('<html><head><script src="js/jquery-3.2.1.min.js"></script><script src="js/processing.js"></script><script src="js/error.js"></script><script src="js/pjsSetUp.js"></script></head><body style="margin:0;"><canvas id="processing-canvas"> </canvas></body></html>');
+		//删除<script type="application/processing" target="processing-canvas">' + value + '</script>
+		iframedocument.close();
+		processor = iframeWindow.processor;
+		//console.log(processor);
 	} else if ($(".move").attr("data-state") == "off" && !javaCanRun) {
 		$("#alertContent h1").html("提示：");
 		$("#alertContent p").html("确认编写的是否为Java代码<br>或代码内缺少setup和draw两个核心函数");
 		$(window).resize();
 		$(".floatAlert").css("display", "block");
 	}
-	iframedocument.close();
 }
 document.getElementById("iframe").onload = function () {
 	var canvas;
@@ -342,6 +349,10 @@ codeWrite.click(function () {
 	$('#sketch').removeClass('active');
 	$('#sketch').addClass('inactive');
 	$('#editSketchPanel').addClass('inactive');
+	if(processor != undefined){
+		console.log(processor);
+		processor.noLoop();
+	}
 })
 
 

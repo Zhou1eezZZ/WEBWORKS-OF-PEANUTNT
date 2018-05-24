@@ -1,7 +1,20 @@
+/*5.2修改*/
 #followButton{
 	position:relative;
 	top: 0;
-	padding-top:10px;
+	left: 50%;
+	margin-left: -80px;
+	margin-top: 10px;
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
 	font-size: 24px;
+	border: solid 1px;
+	border-radius: 10px;
 	color:rgba(250, 204, 46, 0.71);
+}
+.followed{
+	background-color: rgba(250, 204, 46, 0.71);
+    color: white !important;
+    border-color: rgba(250,204,46,0.71) !important;
 }
